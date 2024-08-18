@@ -27,6 +27,12 @@ def prepare_netgen():
     if not success:
         raise RuntimeError('Failed to apply occgenmesh for OCCT 7.6 patch.')
 
+    # Patch adapted from https://github.com/NGSolve/netgen/issues/170
+    pset = patch.fromfile('patch/netgen-std-hash.patch')
+    success = pset.apply(strip=0, root='src/Netgen')
+    if not success:
+        raise RuntimeError('Failed to apply Netgen std::hash patch.')
+
     # Copy Netgen cmake files into source directory
     shutil.copytree('cmake/Netgen', 'src/Netgen', dirs_exist_ok=True)
 

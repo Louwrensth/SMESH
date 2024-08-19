@@ -16,7 +16,7 @@ def prepare_netgen():
     shutil.copytree('external/Netgen/nglib', 'src/Netgen/nglib')
 
     # Patch Netgen sources for SALOME
-    pset = patch.fromfile('external/NETGENPlugin/src/NETGEN/netgen62ForSalome.patch')
+    pset = patch.fromfile('patch/netgen6_2_2404.patch')
     success = pset.apply(strip=1, root='src/Netgen')
     if not success:
         raise RuntimeError('Failed to apply Netgen patch.')

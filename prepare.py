@@ -21,12 +21,6 @@ def prepare_netgen():
     if not success:
         raise RuntimeError('Failed to apply Netgen patch.')
 
-    # Patch occgenmesh for OCCT 7.6
-    pset = patch.fromfile('patch/occgenmesh_OCCT76.patch')
-    success = pset.apply(strip=0, root='src/Netgen')
-    if not success:
-        raise RuntimeError('Failed to apply occgenmesh for OCCT 7.6 patch.')
-
     # Copy Netgen cmake files into source directory
     shutil.copytree('cmake/Netgen', 'src/Netgen', dirs_exist_ok=True)
 

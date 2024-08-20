@@ -1,6 +1,8 @@
---- a/src/SMESH/SMESH_MeshEditor.cxx	2023-05-13 20:04:14.611798489 +0800
-+++ b/src/SMESH/SMESH_MeshEditor.cxx	2023-05-15 05:58:50.875607024 +0800
-@@ -4307,7 +4307,7 @@
+diff --git a/src/SMESH/SMESH_MeshEditor.cxx b/src/SMESH/SMESH_MeshEditor.cxx
+index be874359b..87ebf20cb 100644
+--- a/src/SMESH/SMESH_MeshEditor.cxx
++++ b/src/SMESH/SMESH_MeshEditor.cxx
+@@ -4636,7 +4636,7 @@ void SMESH_MeshEditor::sweepElement(const SMDS_MeshElement*               elem,
          std::swap( itNN[0],    itNN[1] );
          std::swap( prevNod[0], prevNod[1] );
          std::swap( nextNod[0], nextNod[1] );

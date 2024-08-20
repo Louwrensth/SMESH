@@ -1,7 +1,8 @@
 diff --git a/src/SMDS/SMDS_ElementFactory.cxx b/src/SMDS/SMDS_ElementFactory.cxx
+index 4e3081e28..95d7df6f5 100644
 --- a/src/SMDS/SMDS_ElementFactory.cxx
 +++ b/src/SMDS/SMDS_ElementFactory.cxx
-@@ -524,9 +524,9 @@ SMDS_ElementChunk::SMDS_ElementChunk( SMDS_ElementFactory* factory, smIdType id0
+@@ -536,9 +536,9 @@ SMDS_ElementChunk::SMDS_ElementChunk( SMDS_ElementFactory* factory, smIdType id0
    if ( !myFactory )
      return;
    if ( myFactory->myIsNodal )
@@ -13,7 +14,7 @@ diff --git a/src/SMDS/SMDS_ElementFactory.cxx b/src/SMDS/SMDS_ElementFactory.cxx
  
    myUsedRanges.mySet.reserve(2);
    mySubIDRanges.mySet.insert( _ShapeIDRange( 0, 0 ));
-@@ -542,7 +542,7 @@ SMDS_ElementChunk::SMDS_ElementChunk( SMDS_ElementFactory* factory, smIdType id0
+@@ -554,7 +554,7 @@ SMDS_ElementChunk::SMDS_ElementChunk( SMDS_ElementFactory* factory, smIdType id0
  
  SMDS_ElementChunk::~SMDS_ElementChunk()
  {
@@ -23,6 +24,7 @@ diff --git a/src/SMDS/SMDS_ElementFactory.cxx b/src/SMDS/SMDS_ElementFactory.cxx
  }
  
 diff --git a/src/SMDS/SMDS_ElementFactory.hxx b/src/SMDS/SMDS_ElementFactory.hxx
+index b524771a9..b39cc97b5 100644
 --- a/src/SMDS/SMDS_ElementFactory.hxx
 +++ b/src/SMDS/SMDS_ElementFactory.hxx
 @@ -26,6 +26,7 @@
@@ -33,7 +35,7 @@ diff --git a/src/SMDS/SMDS_ElementFactory.hxx b/src/SMDS/SMDS_ElementFactory.hxx
  #include "SMDS_Position.hxx"
  
  #include <Utils_SALOME_Exception.hxx>
-@@ -371,7 +372,10 @@ typedef double                     TParam;
+@@ -373,7 +374,10 @@ typedef double                     TParam;
  class SMDS_ElementChunk
  {
    SMDS_ElementFactory* myFactory;     // holder of this chunk
@@ -45,7 +47,7 @@ diff --git a/src/SMDS/SMDS_ElementFactory.hxx b/src/SMDS/SMDS_ElementFactory.hxx
    smIdType             my1stID;       // ID of myElements[0]
    TBitSet              myMarkedSet;   // mark some elements
    TUsedRangeSet        myUsedRanges;  // ranges of used/unused elements
-@@ -387,10 +391,25 @@ public:
+@@ -389,10 +393,25 @@ public:
    ~SMDS_ElementChunk();
  
    //! Return an element by an index [0,ChunkSize()]
@@ -73,7 +75,7 @@ diff --git a/src/SMDS/SMDS_ElementFactory.hxx b/src/SMDS/SMDS_ElementFactory.hxx
  
    //! Return ID of the first non-used element
    smIdType  GetUnusedID() const;
-@@ -405,7 +424,14 @@ public:
+@@ -407,7 +426,14 @@ public:
    static bool IsUsed( const _UsedRange& r ) { return r.myValue; }
  
    //! Return index of an element in the chunk

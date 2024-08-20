@@ -1,7 +1,8 @@
 diff --git a/src/GEOMUtils/GEOMUtils.cxx b/src/GEOMUtils/GEOMUtils.cxx
+index 3bd842996..a4eb0610a 100644
 --- a/src/GEOMUtils/GEOMUtils.cxx
 +++ b/src/GEOMUtils/GEOMUtils.cxx
-@@ -94,8 +94,6 @@
+@@ -93,8 +93,6 @@
  #include <sstream>
  #include <algorithm>
  
@@ -10,7 +11,7 @@ diff --git a/src/GEOMUtils/GEOMUtils.cxx b/src/GEOMUtils/GEOMUtils.cxx
  #include <Standard_Failure.hxx>
  #include <Standard_NullObject.hxx>
  #include <Standard_ErrorHandler.hxx> // CAREFUL ! position of this file is critic : see Lucien PIGNOLONI / OCC
-@@ -1028,7 +1026,7 @@ Standard_Real GEOMUtils::GetMinDistance
+@@ -1027,7 +1025,7 @@ Standard_Real GEOMUtils::GetMinDistance
  //=======================================================================
  gp_Pnt GEOMUtils::ConvertClickToPoint( int x, int y, Handle(V3d_View) aView )
  {
